@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background: #eee;
+            font-family: Calibri;
+            margin: 50px;
+        }
+        h1{
+            color: #333;
+            font-size: 2.5rem;
+            /*font-weight: normal;*/
+        }
+        #btn, #number, h2{
+            color: #333;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+        #btn{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="title">Facture</h1>
+<h2 id="result"></h2>
+
+
+<script>
+    const title = document.getElementById("title");
+    const result = document.getElementById("result");
+
+
+
+    let achats = [];
+    achats.length = 10;
+    let sum =0;
+
+    populate();
+
+    function populate(){
+        result.innerText = "";
+        for (let i = 0; i < achats.length; i++) {
+            let rng = Math.max(Math.random(),0.1);
+            rng *= 10;
+            rng = Math.round(rng);
+            rng *= 10;
+            achats[i] = rng;
+            sum += rng;
+            result.innerHTML += rng.toString() + " €" + "<br>";
+        }
+        result.innerHTML += "<hr>";
+        result.innerHTML += "doit " + sum.toString() + " €";
+
+        let paid = sum + Math.round(Math.random() * 100);
+        result.innerHTML += "<br>";
+        result.innerHTML += "paye " + paid.toString() + " €";
+
+        let dif = paid - sum;
+        result.innerHTML += "<hr>";
+        result.innerHTML += "à rembourer --> " + dif.toString() + " €";
+
+        let change10 =  Math.floor(dif / 10 );
+        dif -= change10 * 10;
+        let change5 =  Math.floor(dif / 5 );
+        dif -= change5 * 5;
+        let change1 = dif;
+
+        result.innerHTML += "<br>";
+        result.innerHTML += "billets de 10€ -> " + change10.toString();
+        result.innerHTML += "<br>";
+        result.innerHTML += "billets de 5€ ---> " + change5.toString();
+        result.innerHTML += "<br>";
+        result.innerHTML += "billets de 1€ ---> " + change1.toString();
+
+
+
+    }
+    console.log(achats);
+
+
+
+</script>
+</body>
+</html>
