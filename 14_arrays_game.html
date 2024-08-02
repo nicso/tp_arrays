@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            --a: #e0e0e0;
+            --at: rgba(238, 238, 238, 0);
+            --b: #818181;
+            --cell-size : 12.35%;
+            --cell-gap : 0.2%;
+            --cell-margin : 2.5%;
+        }
+        body{
+            background: #ddd;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            font-family: Calibri, Serif;
+        }
+        #board{
+            position: relative;
+            aspect-ratio: 1;
+            background: repeating-linear-gradient(to bottom, var(--at),var(--at) calc(var(--cell-size) - var(--cell-gap)),var(--b) calc(var(--cell-size) - var(--cell-gap)) ,var(--b) calc(var(--cell-size) + var(--cell-gap)) ),
+                        repeating-linear-gradient(to right, var(--at),var(--at) calc(var(--cell-size) - var(--cell-gap)),var(--b) calc(var(--cell-size) - var(--cell-gap)) ,var(--b) calc(var(--cell-size) + var(--cell-gap)) );
+            border: var(--b) 5px solid;
+            border-radius: 30px;
+            width: max(35vw, 400px);
+        }
+        .piece {
+            position: absolute;
+            background: #ccc;
+            color: #ccc;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            width: 8%;
+            transition: 0.25s ease-in-out;
+        }
+        .P{
+            color: #333;
+            background: #333;
+        }
+        .X{
+            background: #6d9493;
+            color: #6d9493;
+        }
+        .empty{
+            border-radius: 0;
+
+            background: transparent;
+            /*background: rebeccapurple;*/
+        }
+
+        .x0{
+            top: calc( var(--cell-size ) * 0 + var(--cell-margin) );
+        }
+        .x1{
+            top: calc( var(--cell-size ) * 1 + var(--cell-margin) );
+        }
+        .x2{
+            top: calc( var(--cell-size ) * 2 + var(--cell-margin) );
+        }
+        .x3{
+            top: calc( var(--cell-size ) * 3 + var(--cell-margin) );
+        }
+        .x4{
+            top: calc( var(--cell-size ) * 4 + var(--cell-margin) );
+        }
+        .x5{
+            top: calc( var(--cell-size ) * 5 + var(--cell-margin) );
+        }
+        .x6{
+            top: calc( var(--cell-size ) * 6 + var(--cell-margin) );
+        }
+        .x7{
+            top: calc( var(--cell-size ) * 7 + var(--cell-margin) );
+        }
+        .y0{
+            left: calc( var(--cell-size ) * 0 + var(--cell-margin) );
+        }
+        .y1{
+            left: calc( var(--cell-size ) * 1 + var(--cell-margin) );
+        }
+        .y2{
+            left: calc( var(--cell-size ) * 2 + var(--cell-margin) );
+        }
+        .y3{
+            left: calc( var(--cell-size ) * 3 + var(--cell-margin) );
+        }
+        .y4{
+            left: calc( var(--cell-size ) * 4 + var(--cell-margin) );
+        }
+        .y5{
+            left: calc( var(--cell-size ) * 5 + var(--cell-margin) );
+        }
+        .y6{
+            left: calc( var(--cell-size ) * 6 + var(--cell-margin) );
+        }
+        .y7{
+            left: calc( var(--cell-size ) * 7 + var(--cell-margin) );
+        }
+    </style>
+</head>
+
+<body>
+<div id="board">
+</div>
+<h2>Arrow keys to move</h2>
+<h3>every piece moves at the same time</h3>
+<h3>you don't move, you lose</h3>
+
+<script>
+
+    let boardArray = [
+        ["P", "P", "P", "P", "P", "P", "P", "P"],
+        ["P", "P", "P", "P", " ", " ", "P", "P"],
+        [" ", " ", " ", " ", "P", " ", " ", " "],
+        [" ", " ", " ", " ", " ", "P", " ", " "],
+        [" ", " ", "X", " ", " ", " ", " ", " "],
+        ["P", "P", "P", "P", "P", "P", "P", "P"],
+        ["P", "P", "P", "P", "P", "P", "P", "P"],
+        ["P", "P", "P", "P", "P", "P", "P", "P"],
+    ];
+
+    console.log(boardArray.join("\n") + "\n\n");
+
+    // On déplace le pion de deux cases en avant 2
+    // boardArray[4][2] = boardArray[6][2];
+    // boardArray[6][2] = " ";
+    console.log(boardArray.join("\n"));
+
+    function moveBoardCell(x1,y1,x2,y2){
+        boardArray[y1][x1] = boardArray[y2][x2];
+
+    }
+    function setBoardCell(x1,y1,value){
+        boardArray[y1][x1] = value;
+    }
+    function getBoardCell(x,y){
+        try {
+            return boardArray[y][x];
+        }catch (error){
+
+            console.error("oops, nowhere to go");
+        }
+    }
+
+    document.body.onload = addElements;
+    const board = document.getElementById("board");
+    function addElements(){
+        for (let x = 0; x < 8; x++) {
+            for (let y = 0; y < 8; y++) {
+                placePiece(boardArray[x][y], x, y);
+            }
+        }
+    }
+    function placePiece(piece,x,y){       
+        let div = document.createElement("div");
+        div.classList.add("piece");
+        div.classList.add(piece === ' '?'empty':piece );
+        div.classList.add("x"+ (x));
+        div.classList.add("y"+ (y));
+        let content = document.createTextNode(piece);
+        div.appendChild(content);
+        board.appendChild(div);
+    }
+
+    function movePiece(x1, y1, x2, y2){
+        let classX = "x" + (y1).toString();
+        let classY = "y" + (x1).toString();
+        let classPiece = getBoardCell(x1, y1);
+        let className = classX + " " + classY + " " + classPiece;
+
+        moveBoardCell(x2, y2, x1, y1);
+        setBoardCell(x1, y1, " ");
+
+        let piece = board.getElementsByClassName(className)[0];
+        console.log("searching for " + className + " -> " + piece.classList);
+        console.log("removing " + classX + " and " + classY);
+        piece.classList.remove(classX);
+        piece.classList.remove(classY);
+        console.log("adding y" + x2 + " and x" + y2);
+        piece.classList.add("x" + y2.toString());
+        piece.classList.add("y" + x2.toString());
+
+
+        classX = "x" + (y2).toString();
+        classY = "y" + (x2).toString();
+        className = classX + " " + classY + " empty";
+        piece = board.getElementsByClassName(className)[0];
+        piece.classList.remove(classX);
+        piece.classList.remove(classY);
+        piece.classList.add("x" + y1.toString());
+        piece.classList.add("y" + x1.toString());
+
+        // boardArray[x1][y1] = ' ';
+        console.log(boardArray.join("\n"));
+        
+    }
+
+    let playerPos = [2,4]; //initial piece to move
+
+    function movePieceDown(){
+        console.log("down from " + playerPos);
+        if(getBoardCell(playerPos[0],playerPos[1]+1) !== " " ) return;
+        playerPos[1]++;
+        movePiece(playerPos[0], playerPos[1]-1, playerPos[0], playerPos[1]);
+    }
+    function movePieceUp(){
+        console.log("up from " + playerPos);
+        if(getBoardCell(playerPos[0],playerPos[1]-1) !== " " ) return;
+        playerPos[1]--;
+        movePiece(playerPos[0], playerPos[1]+1, playerPos[0], playerPos[1]);
+    }
+    function movePieceLeft(){
+        console.log("left from " + playerPos);
+        if(getBoardCell(playerPos[0]-1,playerPos[1]) !== " " ) return;
+        playerPos[0]--;
+        movePiece(playerPos[0]+1, playerPos[1], playerPos[0], playerPos[1]);
+    }
+    function movePieceRight(){
+        console.log("right from " + playerPos);
+        if(getBoardCell(playerPos[0]+1,playerPos[1]) !== " " ) return;
+        playerPos[0]++;
+        movePiece(playerPos[0]-1, playerPos[1], playerPos[0], playerPos[1]);
+    }
+    let keyp = false;
+    let moved = false;
+    let oldPos = [2,4];
+    let score = 0;
+    document.addEventListener('keydown', function(event) {
+        if(!keyp)
+        {
+            keyp = true;
+        }else  {
+            return;
+        }
+        if (event.code == 'ArrowDown' || event.code == 'ArrowUp' || event.code == 'ArrowLeft' || event.code == 'ArrowRight'){
+
+            oldPos = playerPos.slice();
+            if (event.code == 'ArrowDown') {
+                movePieceDown();
+                randomMove();
+            }
+            if (event.code == 'ArrowUp') {
+                movePieceUp();
+                randomMove();
+            }
+            if (event.code == 'ArrowLeft') {
+                movePieceLeft();
+                randomMove();
+            }
+            if (event.code == 'ArrowRight') {
+                movePieceRight();
+                randomMove();
+            }
+            if(event.code == 'Space'){
+                randomMove();
+            }
+            if(playerPos[0] == oldPos[0] && playerPos[1] == oldPos[1] ){
+                alert("perdu -> " + score + " moves");
+                location.reload();
+            }else{
+                score++;
+            }
+
+        }
+    });
+
+    document.addEventListener('keyup', function(event) {
+        keyp = false;
+
+    });
+
+
+    function randomMove(){
+        for (let x = 0; x < 8; x++) {
+            for (let y = 0; y < 8; y++) {
+
+                let rngx = Math.random() * 2 - 1;
+                rngx = Math.round(rngx);
+                let rngy = Math.random() * 2 - 1;
+                rngy = Math.round(rngy);
+
+
+                if(getBoardCell(x,y) !== " " && getBoardCell(x,y) !== "X"){
+                    if(getBoardCell(x+rngx, y+rngy) === " " ) {
+                        movePiece(x, y, x+rngx, y+rngy);
+                    }
+
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

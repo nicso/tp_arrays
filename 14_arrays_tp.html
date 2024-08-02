@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let notes = [];
+    notes.length = 10;
+
+    for (let i = 0; i < notes.length; i++) {
+        let rng = Math.random();
+        rng *= 100;
+        rng = Math.round(rng);
+        notes[i] = rng;
+    }
+    console.log(notes);
+
+    function getMax(array){
+        let max = 0;
+        for (let i = 0; i < notes.length; i++) {
+            if(notes[i] > max ){
+                max = notes[i];
+            }
+        }
+        return max;
+    }
+    console.log("max = " + getMax(notes));
+    function getMin(array){
+        let min = 100;
+        for (let i = 0; i < notes.length; i++) {
+            if(notes[i] < min ){
+                min = notes[i];
+            }
+        }
+        return min;
+    }
+    console.log("min = " + getMin(notes));
+    function getAverage(array){
+        let sum = 0;
+        for (let i = 0; i < notes.length; i++) {
+            sum += notes[i];
+        }
+        return sum / notes.length;
+    }
+    console.log("average = " + getAverage(notes));
+
+</script>
+</body>
+</html>
