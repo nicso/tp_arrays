@@ -36,6 +36,7 @@
 <input type="text" value="j'aime les chameaux" id="input">
 <h2 id="result"></h2>
 <script>
+
 //Écrivez une fonction qui prend une phrase en entrée et retourne la phrase convertie en camelCase.
 
 const input = document.getElementById("input");
@@ -70,7 +71,14 @@ function camelCasator(chaine){
         chaine[i] = chaine[i].replace(charToReplace , charToReplace.toUpperCase());
 
         r += chaine[i];
+        debugger;
     }
+
+    for(const ch of chaine) {
+        console.log("foreach " + ch);
+    }
+
+
     console.log("apres => " + chaine);
 
     return r;

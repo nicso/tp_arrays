@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Probas PMU</title>
+    <style>
+        body{
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+        h1{
+            color: #444;
+            font-size: 2.5rem;
+            /*font-weight: normal;*/
+        }
+        #btn, #number, h2{
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+        #btn{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>Probas PMU</h1>
+<h2 id="order"></h2>
+<h2 id="disorder"></h2>
+
+<script>
+    const order_elem = document.getElementById("order");
+    const disorder_elem = document.getElementById("disorder");
+
+    let horseCnt = 0;
+    let horsePlayed = 0;
+
+
+    do {
+        horseCnt = prompt("nombre de chevaux : ");
+    } while (horseCnt <= 0);
+
+    do {
+        horsePlayed = prompt("nombre de chevaux joués: ");
+    } while (horsePlayed <= 0);
+
+
+    // x = 1/x chance de gagner dans l'ordre
+    // y = 1/y chance de gagner dans le désordre
+
+    //x  = n! / (n - p)
+    //y = n! / (p! * (n - p) !)
+
+    let x = factor(horseCnt) / ( horseCnt - horsePlayed) ;
+    let y = factor(horseCnt) / (factor(horsePlayed) * (horseCnt - horsePlayed));
+
+    function factor(num) {
+        var result = num;
+        if (num === 0 || num === 1)
+            return 1;
+        while (num > 1) {
+            num--;
+            result *= num;
+        }
+        return result;
+    }
+
+    let resultX;
+    if(isFinite(x))
+    {
+        resultX = "dans l'ordre : une chance sur " + x + " de gagner";
+    }else{
+        resultX = "Toutes les chances de gagner"
+    }
+    let resultY;
+    if(isFinite(y))
+    {
+        resultY = "dans le désordre : une chance sur " + y + " de gagner";
+    }else{
+        resultY = "Toutes les chances de gagner"
+    }
+
+    order.innerHTML = resultX;
+    disorder.innerHTML = resultY;
+
+
+
+
+
+</script>
+</body>
+</html>

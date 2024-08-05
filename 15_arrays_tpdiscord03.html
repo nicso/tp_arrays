@@ -34,6 +34,8 @@
 <body>
 <h1>ex : 03 Doublons</h1>
 <script>
+    //Écrivez une fonction qui prend un tableau en entrée et retourne un nouveau tableau contenant uniquement les éléments uniques (sans doublons).
+
     let array = [2, 5, 1, 20, -23, 55, 4, 2, 89, 12, 2, 30, 32, -56, 5, 20 ,10 ,2];
     let finalArray = [];
     console.log(array);
@@ -44,7 +46,20 @@
             if ( !finalArray.includes( array[i] ) ){
                 finalArray.push(array[i]);
             }
+
+            // Manuellement
+            // if (find(array[i], finalArray) === 0) {
+            //     finalArray.push(array[i]);
+            // }
         }
+    }
+    function find(num, inArray) {
+        for (let i = 0; i < inArray.length ; i++) {
+            if (inArray[i] === num){
+                return true;
+            }
+        }
+        return false;
     }
 
 </script>
