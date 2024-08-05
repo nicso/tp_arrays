@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex : 03 Doublons</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>ex : 03 Doublons</h1>
+<script>
+    let array = [2, 5, 1, 20, -23, 55, 4, 2, 89, 12, 2, 30, 32, -56, 5, 20 ,10 ,2];
+    let finalArray = [];
+    console.log(array);
+    removeDuplicates(array);
+    console.log(finalArray);
+    function removeDuplicates(array){
+        for (let i = 0; i < array.length; i++) {
+            if ( !finalArray.includes( array[i] ) ){
+                finalArray.push(array[i]);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

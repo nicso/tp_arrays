@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex 07 : camelCase</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2,input {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>ex 07 : camelCase</h1>
+<input type="text" value="j'aime les chameaux" id="input">
+<h2 id="result"></h2>
+<script>
+//Écrivez une fonction qui prend une phrase en entrée et retourne la phrase convertie en camelCase.
+
+const input = document.getElementById("input");
+const result = document.getElementById("result");
+
+const spechar = [',' , ';' , ':' , '!' , '?' , '.' , '(' , ')' , '\'', '"' ];
+
+function removeSpecials(chaine) {
+    chaine = chaine.toLowerCase();
+    for (let i = 0; i < spechar.length; i++) {
+        chaine = chaine.replaceAll(spechar[i], '');
+    }
+    chaine = chaine.replaceAll('é', 'e');
+    chaine = chaine.replaceAll('è', 'e');
+    chaine = chaine.replaceAll('ê', 'e');
+    chaine = chaine.replaceAll('ç', 'c');
+    chaine = chaine.replaceAll('à', 'a');
+
+    console.log("chaine = " +  chaine);
+    return chaine
+}
+function camelCasator(chaine){
+    chaine =  removeSpecials(chaine).split(' ');
+
+    console.log("avant => " + chaine);
+    let r = "";
+    for (let i = 0; i < chaine.length; i++) {
+        let charToReplace = chaine[i][0];
+        chaine[i] = chaine[i].replace(charToReplace , charToReplace.toUpperCase());
+        r += chaine[i];
+    }
+    console.log("apres => " + chaine);
+
+    return r;
+}
+
+displayResult();
+
+input.addEventListener("input", (e) => {
+    displayResult();
+});
+function displayResult(){
+    result.innerHTML = camelCasator(input.value);
+}
+
+</script>
+</body>
+</html>

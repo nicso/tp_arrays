@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex: 1 : tableau inversé</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>ex: 1 : tableau inversé</h1>
+<script>
+    /*
+    Écrivez une fonction qui prend un tableau en entrée et retourne un nouveau tableau avec les éléments dans l'ordre inverse.
+    */
+
+    let array = [2, 5, 1, 20, -23, 55, 4, 8, 89, 12, 16, 30, 32, -56];
+    console.log(array);
+
+    function invertArray(array) {
+        return array.reverse();
+    }
+    console.log(invertArray(array));
+    
+    function invertArrayManual(array) {
+        let inversedArray = [];
+        inversedArray.length = array.length;
+        for (let i = 0; i < array.length; i++) {
+            inversedArray[ (array.length - i) -1 ] = array[i];
+        }
+        return inversedArray;
+    }
+    console.log(invertArrayManual(array));
+</script>
+</body>
+</html>

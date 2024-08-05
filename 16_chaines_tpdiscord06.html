@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex: 6 anagrammes </title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2, input {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>ex: 6 anagrammes </h1>
+<input type="text" name="chaine1" id="chaine1" value="La madeleine de Proust" autocomplete="off">
+<input type="text" name="chaine1" id="chaine2" value="La ronde ailée du temps" autocomplete="off">
+<h2 id="result"></h2>
+<script>
+    //Écrivez une fonction qui prend deux chaînes de caractères en entrée et retourne true si les deux chaînes sont des anagrammes (contiennent les mêmes lettres avec la même fréquence), et false sinon.
+
+    const chaine1_input = document.getElementById("chaine1");
+    const chaine2_input = document.getElementById("chaine2");
+    const result = document.getElementById("result");
+
+    displayResult(chaine1_input.innerHTML, chaine2_input.innerHTML);
+    function removeSpecials(chaine) {
+        chaine = chaine.toLowerCase();
+        chaine = chaine.replaceAll(' ', '');
+        chaine = chaine.replaceAll('é', 'e');
+        chaine = chaine.replaceAll('è', 'e');
+        chaine = chaine.replaceAll('ê', 'e');
+        chaine = chaine.replaceAll('ç', 'c');
+
+        console.log("chaine = " +  chaine);
+        return chaine
+    }
+
+    function isAnagram(chaine1, chaine2) {
+
+        chaine1 = removeSpecials(chaine1);
+        chaine2 = removeSpecials(chaine2);
+
+        if (chaine2.length !== chaine1.length) {
+            return false;
+        }
+
+        for (let i = 0; i < chaine1.length; i++) {
+            if(!chaine2.includes(chaine1[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    chaine1_input.addEventListener( "input", (e) =>{
+        displayResult(chaine1_input.value, chaine2_input.value);
+    } );
+    chaine2_input.addEventListener( "input", (e) =>{
+        displayResult(chaine1_input.value, chaine2_input.value);
+    } );
+
+    function displayResult(ch1,ch2){
+        if (isAnagram(ch1, ch2)) {
+            result.innerHTML = "ce sont bien des anagrammes.";
+            result.style.color = "#43a16f";
+        } else {
+            result.innerHTML = "ce ne sont pas des anagrammes.";
+            result.style.color = "#c0707a";
+        }
+    }
+
+
+</script>
+</body>
+</html>

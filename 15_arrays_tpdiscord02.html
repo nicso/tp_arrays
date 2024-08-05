@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex2 : Find</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>ex2 : Find</h1>
+<script>
+    /*
+    Écrivez une fonction qui prend un tableau et un élément en entrée et retourne le nombre de fois que cet élément apparaît dans le tableau.
+    */
+    let array = [2, 5, 1, 20, -23, 55, 4, 2, 89, 12, 2, 30, 32, -56, 5, 20 ,10 ,2];
+    console.log(array);
+
+    function occurenceOf(num, inArray) {
+        let cnt = 0;
+        for (let i = 0; i < inArray.length ; i++) {
+            inArray[i] === num && (cnt++);
+            //https://stackoverflow.com/a/2933472
+
+            // if (inArray[i] === num){
+            //     cnt++;
+            // }
+        }
+        return cnt;
+    }
+
+    console.log(occurenceOf(5, array));
+
+</script>
+</body>
+</html>
