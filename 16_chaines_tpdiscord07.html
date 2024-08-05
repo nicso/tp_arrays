@@ -58,6 +58,9 @@ function removeSpecials(chaine) {
     return chaine
 }
 function camelCasator(chaine){
+    if(chaine === "") {
+        return "";
+    }
     chaine =  removeSpecials(chaine).split(' ');
 
     console.log("avant => " + chaine);
@@ -65,6 +68,7 @@ function camelCasator(chaine){
     for (let i = 0; i < chaine.length; i++) {
         let charToReplace = chaine[i][0];
         chaine[i] = chaine[i].replace(charToReplace , charToReplace.toUpperCase());
+
         r += chaine[i];
     }
     console.log("apres => " + chaine);
