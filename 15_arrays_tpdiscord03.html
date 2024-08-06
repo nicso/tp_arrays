@@ -37,23 +37,39 @@
     //Écrivez une fonction qui prend un tableau en entrée et retourne un nouveau tableau contenant uniquement les éléments uniques (sans doublons).
 
     let array = [2, 5, 1, 20, -23, 55, 4, 2, 89, 12, 2, 30, 32, -56, 5, 20 ,10 ,2];
-    let finalArray = [];
+    console.log("tableau de départ : " );
     console.log(array);
-    removeDuplicates(array);
-    console.log(finalArray);
-    function removeDuplicates(array){
-        for (let i = 0; i < array.length; i++) {
-            if ( !finalArray.includes( array[i] ) ){
-                finalArray.push(array[i]);
-            }
 
-            // Manuellement
-            // if (find(array[i], finalArray) === 0) {
-            //     finalArray.push(array[i]);
+    console.log("tableau sans duplicatas " );
+    console.log(removeDuplicates(array));
+
+    console.log("set : ");
+    console.log(removeDuplicatesWithSet(array));
+
+    function removeDuplicates(array){
+        let noDuplicates = [];
+
+        for (let i = 0; i < array.length; i++) {
+            if ( !noDuplicates.includes( array[i] ) ){
+                noDuplicates.push(array[i]);
+            }
+            // .includes Manuel:
+            // if (isPresent(array[i], noDuplicates) === 0) {
+            //     noDuplicates.push(array[i]);
             // }
         }
+        return noDuplicates;
     }
-    function find(num, inArray) {
+
+    function removeDuplicatesWithSet(array){
+        let noDuplicates = new Set();
+        for (let i = 0; i < array.length; i++) {
+            noDuplicates.add(array[i]);
+        }
+        return noDuplicates;
+    }
+    
+    function isPresent(num, inArray) {
         for (let i = 0; i < inArray.length ; i++) {
             if (inArray[i] === num){
                 return true;
