@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>909</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+            display: grid;
+            /*place-items: center;*/
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2, input {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>909</h1>
+
+<input type="text" name="" id="phrase" placeholder="phrase à crypter">
+<br>
+<input type="text" name="" id="key" placeholder="clé">
+
+<h2 id="result">resultat</h2>
+
+<script>
+    //     Un système de cryptographie beaucoup plus difficile à briser que les précédents fut inventé au XVIe
+    //     siècle par le français Vigenère. Il consistait en une combinaison de différents chiffres de César.
+    //     On peut en effet écrire 25 alphabets décalés par rapport à l’alphabet normal :
+    //          - l’alphabet qui commence par B et finit par …YZA
+    //          - l’alphabet qui commence par C et finit par …ZAB
+    //          - etc.
+    //     Le codage va s’effectuer sur le principe du chiffre de César : on remplace la lettre d’origine par la
+    //     lettre occupant la même place dans l’alphabet décalé.
+    //     Mais à la différence du chiffre de César, un même message va utiliser non un, mais plusieurs
+    //     alphabets décalés. Pour savoir quels alphabets doivent être utilisés, et dans quel ordre, on utilise
+    //     une clé.
+    //     Si cette clé est "VIGENERE" et le message "Il faut coder cette phrase", on procèdera comme suit :
+    //     La première lettre du message, I, est la 9e lettre de l’alphabet normal. Elle doit être codée en
+    //     utilisant l’alphabet commençant par la première lettre de la clé, V. Dans cet alphabet, la 9e lettre
+    //     est le D. I devient donc D.
+    //     La deuxième lettre du message, L, est la 12e lettre de l’alphabet normal. Elle doit être codée en
+    //     utilisant l’alphabet commençant par la deuxième lettre de la clé, I. Dans cet alphabet, la 12e lettre
+    //     est le T. L devient donc T, etc.
+    //     Quand on arrive à la dernière lettre de la clé, on recommence à la première.
+    //     Ecrire l’algorithme qui effectue un cryptage de Vigenère, en demandant bien sûr au départ la clé à
+    //     l’utilisateur
+    const phraseElem = document.getElementById("phrase");
+    const keyElem = document.getElementById("key");
+    const resultElem = document.getElementById("result");
+
+
+    let phraseIn = "Il faut coder cette phrase";
+    let key = "VIGENERE";
+    let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+
+    phraseElem.addEventListener("input", (e) => {
+        resultElem.innerText = encrypt(phraseElem.value, keyElem.value);
+    });
+    keyElem.addEventListener("input", (e) => {
+        resultElem.innerText = encrypt(phraseElem.value, keyElem.value);
+    });
+
+
+    function encrypt(phraseIn, key) {
+        let offset = 0;
+        let charIndex = 0;
+        let phraseOut = "";
+
+        if (key === '') {
+            key = 'a';
+        }
+
+        phraseIn = phraseIn.toLowerCase();
+        key = key.toLowerCase();
+
+        for (let i = 0; i < phraseIn.length; i++) {
+
+
+            if (!alphabet.includes(phraseIn[i])) {
+                phraseOut += phraseIn[i];
+            } else {
+                let keyIndex = alphabet.indexOf(key[charIndex % key.length]);
+                let phraseIndex = alphabet.indexOf(phraseIn[i]);
+                offset = (phraseIndex + keyIndex) % alphabet.length;
+                phraseOut += alphabet[offset];
+
+                charIndex++;
+            }
+        }
+        console.log(phraseOut);
+        console.log(key);
+        return phraseOut;
+    }
+
+
+</script>
+</body>
+</html>
