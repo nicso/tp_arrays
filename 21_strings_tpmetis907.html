@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>907</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>907</h1>
+<script>
+    // Une amélioration (relative) du principe précédent consiste à opérer avec un décalage non de 1,
+    //     mais d’un nombre quelconque de lettres. Ainsi, par exemple, si l’on choisit un décalage de 12, les A
+    // deviennent des M, les B des N, etc.
+    //     Réalisez un algorithme sur le même principe que le précédent, mais qui demande en plus quel est le
+    // décalage à utiliser. Votre sens proverbial de l'élégance vous interdira bien sûr une série de vingt-six
+    // "Si...Alors"
+
+
+    let phraseIn = "Un des plus anciens systèmes de cryptographiez";
+    let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let phraseOut = "";
+    let offset = 2;
+
+    phraseIn = phraseIn.toLowerCase();
+    for (let i = 0; i < phraseIn.length; i++) {
+        let index = alphabet.indexOf(phraseIn[i]);
+        if(phraseIn[i] === ' ') {
+            phraseOut += ' ';
+        }else {
+            phraseOut += alphabet[(index+offset)%alphabet.length];
+        }
+    }
+    console.log(phraseOut);
+
+</script>
+</body>
+</html>

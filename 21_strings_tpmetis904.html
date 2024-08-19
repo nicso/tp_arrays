@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>904</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>904</h1>
+<script>
+    // Ecrivez un algorithme qui demande une phrase à l’utilisateur et qui affiche à l’écran le nombre de
+    // voyelles contenues dans cette phrase.
+    //     On pourra écrire deux solutions. La première déploie une condition composée bien fastidieuse. La
+    // deuxième, en utilisant la fonction Trouvé(), allège considérablement l'algorithme.
+
+    let phrase = "Ecrivez un algorithme";
+    phrase = prompt("Entrez une phrase : ");
+    phrase = phrase.toLowerCase();
+
+    let chars = ['a', 'e', 'i', 'o', 'u', 'y'];
+    let count = 0;
+    for (let i = 0; i < chars.length; i++) {
+        if(phrase.includes(chars[i] )){
+            count++;
+        }
+    }
+
+    console.log(`nombre de voyellles : ${count} `);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>Title</h1>
+<script>
+    // Un des plus anciens systèmes de cryptographie (aisément déchiffrable) consiste à décaler les lettres
+    // d’un message pour le rendre illisible. Ainsi, les A deviennent des B, les B des C, etc. Ecrivez un
+    // algorithme qui demande une phrase à l’utilisateur et qui la code selon ce principe. Comme dans le
+    // cas précédent, le codage doit s’effectuer au niveau de la variable stockant la phrase, et pas
+    // seulement à l’écran.
+
+    let phraseIn = "Un des plus anciens systèmes de cryptographie";
+    let alphabet = [' ',' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a'];
+    let phraseOut = "";
+    phraseIn = phraseIn.toLowerCase();
+    for (let i = 0; i < phraseIn.length; i++) {
+        let index = alphabet.indexOf(phraseIn[i]);
+        phraseOut += alphabet[index+1];
+    }
+    console.log(phraseOut);
+
+</script>
+</body>
+</html>
