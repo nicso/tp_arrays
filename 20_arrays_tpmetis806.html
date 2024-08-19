@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<h1>Title</h1>
+<script>
+
+  // Soit un tableau T à deux dimensions (13, 9) préalablement rempli de valeurs numériques.
+  //         Écrire un algorithme qui recherche la plus grande valeur au sein de ce tableau.
+
+
+  let array = [];
+
+  for (let i = 0; i < 6; i++) {
+    array[i] = [];
+    for (let j = 0; j < 13; j++) {
+      array[i][j] = Math.floor( Math.random() * 100);
+    }
+  }
+  console.log(array);
+
+  function findMax(array) {
+    let max = -Infinity;
+    for (let i = 0; i < 6; i++) {
+      for (let j = 0; j < 13; j++) {
+        if (array[i][j] > max) {
+          max = array[i][j];
+        }
+      }
+    }
+    return max
+  }
+
+  console.log(findMax(array));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<h1>Title</h1>
+<script>
+  // Ecrivez un algorithme qui trie un tableau dans l’ordre décroissant.
+  // Vous écrirez bien entendu deux versions de cet algorithme, l'une employant le tri par insertion,
+  // l'autre le tri à bulles.
+
+  let array = [];
+  array.length = 10;
+  for (let i = 0; i < array.length; i++) {
+    array[i] = ( Math.floor( Math.random() * 10) );
+  }
+
+  console.log("array = " + array);
+  console.log("insertion sort = " + insertionSort(array.slice()));
+  console.log("array = " + array);
+  console.log("bubble sort = " + bubbleSort(array.slice()));
+
+  function insertionSort(array){
+    let count = 0;
+    for (let i = array.length; i < 0; i++) {
+      let a = array[i];
+      for (let j = i-1; j >= 0  ; j--) {
+        let b = array[j];
+        if (a < b) {
+          array[i] = b;
+          array[j] = a;
+          i=j;
+        }
+      }
+    }
+    return array;
+  }
+
+  function bubbleSort(array) {
+    let sorted = false;
+    // while(!isSorted(array)) {
+    while(!sorted) {
+      sorted = true;
+      for (let i = 0; i < array.length - 1; i++) {
+        let a = array[i];
+        let b = array[i + 1];
+        // console.log("testing " + a + " vs " + b);
+        if (a < b) {
+          array[i] = b;
+          array[i + 1] = a;
+          sorted = false;
+        }
+      }
+    }
+    return array;
+  }
+
+</script>
+</body>
+</html>

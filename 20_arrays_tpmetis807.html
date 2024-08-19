@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jeu de dames</title>
+    <style>
+        body {
+            display: grid;
+            justify-items: center;
+
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2,input {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>Title</h1>
+<h2 id="board"></h2>
+<input type="text" name="input" id="input" oninput="moveInput()" placeholder="7,9,1 ou 3">
+<h3>&#8598; 7          9 &#8599;</h3>
+<h3>&#8601; 1          3 &#8600;</h3>
+
+<br>
+<script>
+    // Écrire un algorithme de jeu de dames très simplifié.
+    //         L’ordinateur demande à l’utilisateur dans quelle case se trouve son pion (quelle ligne, quelle
+    // colonne). On met en place un contrôle de saisie afin de vérifier la validité des valeurs entrées.
+    //         Ensuite, on demande à l’utilisateur quel mouvement il veut effectuer : 0 (en haut à gauche), 1 (en
+    // haut à droite), 2 (en bas à gauche), 3 (en bas à droite).
+    // Si le mouvement est impossible (i.e. on sort du damier), on le signale à l’utilisateur et on s’arrête
+    // là. Sinon, on déplace le pion et on affiche le damier résultant, en affichant un « O » pour une case
+    // vide et un « X » pour la case où se trouve le pion.
+
+
+    //prompt position
+    //check values
+
+    //prompt move
+    // 7 => UL . 9 => UR . 1 => DL . 3 => DR
+
+    let board = [];
+    let rows = 10, columns = 10;
+    let posX = 4, posY = 7;
+    let loop = false;
+
+    const BOARD = document.getElementById("board");
+    const INPUT = document.getElementById("input");
+
+    function gameLoop() {
+        boardInitialisation();
+        placePlayer(posX, posY);
+        console.log(board);
+        drawBoard();
+    }
+
+    gameLoop();
+
+    function moveInput(){
+        switch (INPUT.value) {
+            case '1':
+                movePlayer(1, -1);
+                break;
+            case '3':
+                movePlayer(1, 1);
+                break;
+            case '7':
+                movePlayer(-1, -1);
+                break;
+            case '9':
+                movePlayer(-1, 1);
+                break;
+            case '5':
+                loop = false;
+                break;
+            default :
+                move = '';
+        }
+        INPUT.value = '';
+        gameLoop();
+    }
+    function drawBoard() {
+        BOARD.innerHTML = '';
+        for (let x = 0; x < rows; x++) {
+            for (let y = 0; y < columns; y++) {
+                BOARD.innerText += board[x][y] + "  ";
+            }
+            BOARD.innerHTML += " </br> ";
+        }
+
+    }
+
+
+    function movePlayer(x, y) {
+        if (isMoveLegal(posX + x, posY + y)) {
+            posX = posX + x;
+            posY = posY + y;
+            placePlayer(posX, posY);
+        } else {
+            alert("illegal move");
+        }
+    }
+
+    function isMoveLegal(x, y) {
+        return !(x < 0 || x >= rows || y < 0 || y >= columns);
+    }
+
+    function placePlayer(newX, newY) {
+        board[posX][posY] = '0';
+        board[newX][newY] = 'x';
+    }
+
+    function boardInitialisation() {
+        for (let x = 0; x < rows; x++) {
+            board[x] = [];
+            for (let y = 0; y < columns; y++) {
+                board[x][y] = '0';
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

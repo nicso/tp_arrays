@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>saisie</title>
+</head>
+<body>
+<h1>saisie</h1>
+<script>
+  // Ecrivez un algorithme permettant à l’utilisateur de saisir un nombre quelconque de valeurs, qui
+  // devront être stockées dans un tableau. L’utilisateur doit donc commencer par entrer le nombre de
+  // valeurs qu’il compte saisir. Il effectuera ensuite cette saisie. Enfin, une fois la saisie terminée, le
+  // programme affichera le nombre de valeurs négatives et le nombre de valeurs positives
+
+  let array = [];
+  let length = -1;
+  let positivesCount = 0, negativesCount = 0;
+  do{
+    length = prompt("Nombre d’entrées :");
+  }while(length<=0);
+
+
+  for (let i = 0; i < length; i++) {
+    let entry = prompt("Valeur n˚" + (i+1));
+    entry > 0 ? positivesCount++ : negativesCount++;
+    array.push(entry);
+  }
+
+  alert(positivesCount + " nombres positifs et " + negativesCount + " nombres négatifs.");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<h1>Title</h1>
+<script>
+    // Ecrivez un algorithme qui permette de saisir un nombre quelconque de valeurs, et qui les range au
+    // fur et à mesure dans un tableau. Le programme, une fois la saisie terminée, doit dire si les
+    // éléments du tableau sont tous consécutifs ou non.
+    //         Par exemple, si le tableau est :     12 13 14 15 16 17 18
+    //         Ses éléments sont tous consécutifs.
+    //         En revanche, si le tableau est :     9 10 11 15 16 17 18
+    //         Ses éléments ne sont pas tous consécutifs.
+
+    let array1 = [12, 13, 14, 15, 16, 17, 18], array2 = [9, 10, 11, 15, 16, 17, 18], array3 = [];
+
+    do {
+        let value = parseInt( prompt("Valeur : ") );
+        let inserted = false;
+
+        for (let i = 0; i < array3.length ; i++) {
+            if (value < array3[i]) {
+                array3.splice(i, 0, value);
+                inserted = true;
+                break;
+            }
+        }
+        if(!inserted){
+            array3.push(value);
+        }
+
+        alert(array3);
+    } while (array3.length < 8);
+
+
+    function isRecursive(array) {
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] - array[i - 1] !== 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    console.log("array1 : " + array1);
+    console.log("array1 is recursive : " + isRecursive(array1));
+    console.log("array2 : " + array2);
+    console.log("array2 is recursive : " + isRecursive(array2));
+    console.log("array3 : " + array3);
+    console.log("array3 is recursive : " + isRecursive(array3));
+
+
+</script>
+</body>
+</html>

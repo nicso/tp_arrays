@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<h1>Title</h1>
+<script>
+  // Toujours et encore sur le même principe, écrivez un algorithme permettant, à l’utilisateur de saisir
+  // les notes d'une classe. Le programme, une fois la saisie terminée, renvoie le nombre de ces notes
+  // supérieures à la moyenne de la classe.  let array = [];
+
+  const RESULT_ELEM = document.getElementById("result");
+  let array = [];
+  let length = -1;
+  let average = 0;
+  let goodNotes = 0;
+  do{
+    length = prompt("Nombre d’entrées :");
+  }while(length<=0);
+
+
+  for (let i = 0; i < length; i++) {
+    let entry = -1;
+    while(entry < 0 || entry > 20){
+      entry = parseInt( prompt("Note " + i + " :") );
+      array.push(entry);
+      average += entry ;
+    }
+  }
+  average /= array.length;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > average){
+      goodNotes++;
+    }
+  }
+  console.log("average = " + average);
+  console.log("good notes = " + goodNotes);
+
+
+
+    // RESULT_ELEM.innerText += (entry + 1) + " ";
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>addition de tableau</title>
+</head>
+<body>
+<h1>addition de tableau</h1>
+<script>
+    // Ecrivez un algorithme constituant un tableau, à partir de deux tableaux de même longueur
+    // préalablement saisis. Le nouveau tableau sera la somme des éléments des deux tableaux de départ.
+    // Tableau 1 :            4 8 7 9 1 5 4 6
+    // Tableau 2 :            7 6 5 2 1 3 7 4
+    // Tableau à constituer : 11 14 12 11 2 8 11 10
+
+    let array1 = [4,8,7,9,1,5,4,6], array2 = [7,6,5,2,1,3,7,4], array3 = [];
+
+    for (i=0; i<array1.length; i++){
+        array3.push(array1[i] + array2[i]);
+    }
+    console.log(array3);
+</script>
+</body>
+</html>
