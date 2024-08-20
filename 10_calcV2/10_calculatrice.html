@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style_calc.css">
+</head>
+<body>
+
+    <section class="container">
+        <div class="grid grid-display">
+            <div id="interface">
+                <div class="memory-wrapper">
+<!--                    <input id="memory" readonly class="btn btn-display" value="">-->
+<!--                    <input id="operator" readonly class="btn btn-display" value="">-->
+                    <span id="memory" class="btn btn-display">666</span>
+                    <span id="operator" class="btn btn-display">+</span>
+                </div>
+
+                <input id="display" readonly class="btn btn-display" value="0">
+<!--                <button class="btn btn-display" onclick="num_clk(this)" id="memory">mem</button>-->
+<!--                <button class="btn btn-display" onclick="num_clk(this)" id="display">666</button>-->
+            </div>
+            <button class="btn btn-clear" onclick="clearDisplay()">C</button>
+
+        </div>
+
+        <div class="grid grid-num ">
+            <button class="btn btn-num" onclick="addToDisplay('7')">7</button>
+            <button class="btn btn-num" onclick="addToDisplay('8')">8</button>
+            <button class="btn btn-num" onclick="addToDisplay('9')">9</button>
+            <button class="btn btn-num" onclick="addToDisplay('4')">4</button>
+            <button class="btn btn-num" onclick="addToDisplay('5')">5</button>
+            <button class="btn btn-num" onclick="addToDisplay('6')">6</button>
+            <button class="btn btn-num" onclick="addToDisplay('1')">1</button>
+            <button class="btn btn-num" onclick="addToDisplay('2')">2</button>
+            <button class="btn btn-num" onclick="addToDisplay('3')">3</button>
+            <button class="btn btn-num" onclick="addToDisplay('n')">+/-</button>
+            <button class="btn btn-num" onclick="addToDisplay('0')">0</button>
+            <button class="btn btn-num" onclick="addToDisplay('.')">.</button>
+        </div>
+
+
+        <div class="grid grid-operators">
+            <button class="btn btn-op" onclick="addToDisplayOp('/')">/</button>
+            <button class="btn btn-op" onclick="addToDisplayOp('x')">x</button>
+            <button class="btn btn-op" onclick="addToDisplayOp('-')">-</button>
+            <button class="btn btn-op" onclick="addToDisplayOp('+')">+</button>
+            <button class="btn btn-op" onclick="addToDisplayOp('%')">%</button>
+            <button class="btn btn-op btn-accent" onclick="num_clk(this)">=</button>
+        </div>
+
+    </section>
+
+
+    <script src="calculatrice.js"></script>
+</body>
+</html>

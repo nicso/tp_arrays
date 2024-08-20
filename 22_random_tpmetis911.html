@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>911</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>911</h1>
+<script>
+//     Ecrivez les algorithmes qui génèrent un nombre Glup aléatoire tel que …
+//      0 =< Glup < 2
+//      –1 =< Glup < 1
+//      1,35 =< Glup < 1,65
+//      Glup émule un dé à six faces
+//      –10,5 =< Glup < +6,5
+//      Glup émule la somme du jet simultané de deux dés à six faces
+
+
+    console.log("0 =< Glup < 2 : " + rng(0, 2));
+    console.log("-1 =< Glup < 1 : " + rng(-1, 1));
+    console.log("1.35 =< Glup < 1.65 : " + rng(1.35, 1.65));
+    console.log("1 =< Glup <= 6 : " + rngInt(1, 6));
+    console.log("-10.5 =< Glup < 6.5 : " + rng(-10.5, 6.5));
+    console.log("simulation de deux lancé de dés : " + dices(2, 6));
+    console.log("simulation de mille lancé de dés : " + dices(1000, 6, true));
+
+    function rng(min,max){
+        return Math.random() * (max-min) + min;
+    }
+    function rngInt(min,max){
+        return Math.floor( rng(min,max+1) );
+    }
+    function dices(number, faces, silent = false){
+        let r = 0;
+        for (let i = 0; i < number; i++) {
+            let dice = rngInt(1,6);
+            r += dice;
+            if(!silent) console.log(`dé n° ${i+1} = ${dice} `)
+        }
+        return r;
+    }
+
+
+</script>
+</body>
+</html>

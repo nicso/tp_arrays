@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*
+    let fruits = ["Apple", "Banana"];
+
+    let first = fruits[0];
+    let last = fruits[fruits.length - 1];
+
+    fruits.forEach(function (item, index, array) {
+        console.log(item, index);
+    });
+
+    fruits.push("Orange");  //ajoute a la fin
+
+    fruits.pop();           // supprime Orange (à la fin)
+
+    fruits.unshift("Strawberry"); // ajoute au début
+
+    let pos = fruits.indexOf("Banana");   // 2
+
+    fruits.splice(pos, 1); // supprime 1 élément à la position pos
+
+    //////////////////////// Supprimer des éléments à partir d'un index: /////////
+    let vegetables = ["Cabbage", "Turnip", "Radish", "Carrot"];
+    console.log(vegetables);
+    // ["Cabbage", "Turnip", "Radish", "Carrot"]
+
+    let pos1 = 1,
+        n = 2;
+
+    let removedItems = vegetables.splice(pos1, n);
+    // n définit le nombre d'éléments à supprimer,
+    // à partir de la position pos
+
+    console.log(vegetables);
+    // ["Cabbage", "Carrot"] (le tableau d'origine est changé)
+
+    console.log(removedItems);
+    // ["Turnip", "Radish"] (splice retourne la liste des éléments supprimés)
+    ////////////////////////////////////////////////////////////////////////////////
+
+    let shallowCopy = fruits.slice(); // crée un nouveau tableau qui contient les éléments de fruits
+    /////////////////////////////////////////////////////////////////////////////////
+
+    */
+    let plateau = [
+        ["T", "C", "F", "R", "K", "F", "C", "T"],
+        ["P", "P", "P", "P", "P", "P", "P", "P"],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        ["p", "p", "p", "p", "p", "p", "p", "p"],
+        ["t", "c", "f", "k", "r", "f", "c", "t"],
+    ];
+
+    console.log(plateau.join("\n") + "\n\n");
+
+    // On déplace le pion de deux cases en avant 2
+    plateau[4][4] = plateau[6][4];
+    plateau[6][4] = " ";
+    console.log(plateau.join("\n"));
+
+
+
+
+</script>
+</body>
+</html>

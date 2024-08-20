@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nombres pair</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>nombres pair</h1>
+<script>
+    /*
+    Créez un tableau de nombres allant de 1 à 20.
+    Créez une fonction afficherNombresPairs qui parcourt le tableau et affiche uniquement les nombres pairs.
+    Créez une fonction calculerSomme qui retourne la somme de tous les éléments du tableau.
+    Tester ces fonctions
+    */
+
+    let array = [];
+    array.length = 10;
+    for (let i = 0; i < array.length; i++) {
+        array[i] = Math.floor(Math.random() * 20);
+    }
+    console.log("array = " + array);
+    console.log("nombre pairs = " + afficherNombresPairs(array));
+    console.log("somme des nombre pairs = " + calculerSomme( afficherNombresPairs(array) ));
+    function afficherNombresPairs(array){
+        let pairs = [];
+        for (let i = 0; i < array.length; i++) {
+            if(array[i] % 2 === 0 ){
+                pairs.push(array[i]);
+            }
+        }
+        return pairs;
+    }
+    function calculerSomme(array){
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+
+    
+    
+</script>
+</body>
+</html>

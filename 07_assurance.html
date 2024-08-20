@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let tarif = 0 // 0=bleu 1=vert 2=orange 3=rouge 4=nope
+        let age = parseInt(prompt("age :"));
+        let permis = parseInt(prompt("permis depuis :"));
+        let accident = parseInt(prompt("nombre d'accident ?"));
+        let fidelite = parseInt(prompt("fidelité :"));
+
+        if ((age < 25 && permis > 2) || (age > 25 && permis < 2)) {
+            tarif = accident < 1 ? 2 : 3;
+        } else {
+            if (age < 25) {
+                tarif = (permis < 2 && accident == 0)? 3 : 4;
+            }
+        }
+
+        if (age > 25 && permis > 2) {
+            tarif = 1
+            tarif += accident;
+        }
+
+        if (fidelite > 5 && tarif >= 1) {
+            tarif--;
+        }
+
+        switch (tarif) {
+            case 0:
+                alert("bleu")
+                break;
+            case 1:
+                alert("vert")
+                break;
+            case 2:
+                alert("orange")
+                break;
+            case 3:
+                alert("rouge")
+                break;
+            default:
+                alert("déso")
+                break;
+        }
+        console.log("age = " + age);
+        console.log("permis = " + permis);
+        console.log("accident = " + accident);
+        console.log("fidelité = " + fidelite);
+        console.log("classe = " + tarif);
+
+    </script>
+
+</body>
+
+</html>

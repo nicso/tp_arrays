@@ -1,0 +1,141 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: fit-content;
+  margin: 50px auto auto;
+  font-family: Calibri, Serif;
+  font-weight: lighter;
+  font-size: 3em;
+  color: #333;
+  background: linear-gradient(to bottom, #e0e0e0, #c5c0bf);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  background: #a9a9a9;
+  border-radius: 4px;
+  padding: 20px;
+  display: grid;
+  grid-template-areas: " dsp rst " " nums ops ";
+  grid-template-rows: 2fr 8fr;
+  grid-template-columns: 4fr 1fr;
+  gap: 10px;
+  max-height: 90vh;
+  max-width: 40vw;
+  aspect-ratio: 1;
+  border: rgba(0, 0, 0, 0.13) 1px solid;
+  border-bottom: rgba(0, 0, 0, 0.2) 3px solid;
+  margin-bottom: -5px;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+}
+.grid-num {
+  height: 100%;
+  grid-area: nums;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.grid-operators {
+  font-size: 60%;
+  grid-area: ops;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.grid-display {
+  grid-area: dsp;
+  grid-template-columns: 4fr 1fr;
+  height: fit-content;
+  width: 50px;
+}
+
+.btn {
+  background: #c5c0bf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px;
+  min-height: 50px;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  border: rgba(0, 0, 0, 0.13) 1px solid;
+  border-bottom: rgba(0, 0, 0, 0.2) 3px solid;
+  margin-bottom: -5px;
+  position: relative;
+  transition: 250ms;
+}
+.btn-num {
+  height: 100%;
+  aspect-ratio: auto;
+  background: #313131;
+  color: #c5c3c3;
+}
+.btn-accent {
+  background: #ff5815;
+}
+.btn-display {
+  color: #313131;
+  min-width: 0;
+  min-height: 0;
+  background: transparent;
+  margin-right: 10px;
+  border: none;
+  outline: none;
+}
+.btn-clear {
+  font-size: 60%;
+  aspect-ratio: auto;
+  border: rgba(0, 0, 0, 0.13) 1px solid;
+  border-bottom: rgba(0, 0, 0, 0.2) 3px solid;
+  margin-bottom: -5px;
+  grid-area: rst;
+}
+.btn:hover {
+  filter: brightness(0.8) contrast(1.35);
+}
+
+#interface {
+  background: #c5c0bf;
+  gap: 10px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 4px;
+  border: rgba(0, 0, 0, 0.13) 1px solid;
+  border-bottom: rgba(0, 0, 0, 0.2) 3px solid;
+  margin-bottom: -5px;
+  border: none;
+}
+
+#memory, #operator {
+  align-self: end;
+  aspect-ratio: auto;
+  font-size: 35%;
+  flex-basis: 35%;
+  text-align: right;
+  width: fit-content;
+  display: inline;
+}
+
+#display {
+  width: 100%;
+  align-self: end;
+  aspect-ratio: auto;
+  text-align: right;
+  flex-basis: 65%;
+  font-size: 65%;
+}
+
+.memory-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+/*# sourceMappingURL=style_calc.css.map */

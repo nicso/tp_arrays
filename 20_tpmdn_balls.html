@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+
+        html {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            height: 100%;
+        }
+
+        body {
+            cursor: none;
+            overflow-x: hidden;
+            height: inherit;
+            position: relative;
+            background: rgba(10,10,10,1);
+            text-align: justify;
+            display: grid;
+            justify-items: center;
+            margin: auto;
+
+
+        }
+
+        h1 {
+            opacity: 0.8;
+            font-size: 5rem;
+            letter-spacing: -1px;
+            color: whitesmoke;
+        }
+
+        p {
+            width: 400px;
+            opacity: 0.7;
+            color: whitesmoke;
+        }
+
+        canvas {
+            pointer-events: painted;
+            z-index: -9999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+
+        }
+        #mouse{
+            z-index: 999;
+            position: absolute;
+            height: 10px;
+            aspect-ratio: 1;
+            background: hotpink;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="mouse"></div>
+<h1>TITRE</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores neque saepe tenetur. Consequuntur distinctio,
+    eius exercitationem minima neque quia veritatis voluptatum. Cupiditate deleniti doloremque doloribus est eveniet
+    expedita molestiae mollitia natus necessitatibus nesciunt nisi nostrum officiis pariatur, possimus quos sit veniam
+    voluptatibus? Aperiam doloremque error facere ipsam laboriosam porro quaerat quia sed. A aliquid architecto
+    asperiores atque autem blanditiis commodi culpa cumque deleniti dolor dolorum ea enim est et exercitationem
+    inventore ipsam ipsum iusto, laboriosam laborum minima molestias nam necessitatibus nemo nihil nostrum obcaecati
+    quia quidem ratione recusandae reiciendis repellat similique, suscipit, velit voluptas voluptatem voluptatibus? Ea
+    esse exercitationem facere harum iste laboriosam minima modi nihil nostrum omnis, perferendis voluptas voluptatem!
+    Aliquam assumenda autem corporis, delectus distinctio dolorum esse excepturi inventore ipsa, iste labore laboriosam
+    minus neque quasi quisquam sapiente sequi sint suscipit velit veritatis. Autem eaque est illum labore magnam maiores
+    ratione. Aliquam animi eaque facere, facilis nobis recusandae soluta totam voluptatum! Aliquid atque, dicta maxime
+    quis quisquam rerum sit. Aut consequuntur debitis distinctio eius esse ex illo, impedit in incidunt inventore iusto
+    labore laboriosam, laborum neque nulla obcaecati officiis possimus quasi quia, repellat repellendus sit suscipit
+    totam! Accusamus accusantium dolor eaque enim facere ipsa ipsam mollitia, quaerat, ratione rem sapiente similique
+    vitae. Ab accusamus aliquam assumenda at beatae commodi consequuntur cupiditate delectus dicta ea earum facere
+    fugiat in iure magni neque nobis nulla odio odit omnis optio pariatur perspiciatis quaerat quasi quia quibusdam
+    quis, reiciendis sequi soluta tempora totam vel voluptate voluptatibus! Accusantium consequatur dolor fugit illo
+    nulla obcaecati, pariatur possimus temporibus? Aspernatur minima natus obcaecati omnis veniam. A debitis delectus,
+    facere mollitia praesentium quis quos sed suscipit. Ab, accusantium, aliquid, consequuntur cum dicta dolor
+    doloremque eligendi exercitationem in natus similique sint suscipit unde! Assumenda consequatur delectus magnam modi
+    provident quis rem reprehenderit sint soluta tempora. Asperiores atque beatae eveniet iusto optio quam qui. At
+    blanditiis consequatur corporis cupiditate deserunt doloribus eaque eos eveniet hic inventore ipsum itaque nisi
+    officia placeat praesentium quas quos ratione reprehenderit, tenetur ullam. A accusamus alias aliquam assumenda at
+    consequuntur distinctio enim fugiat iste libero necessitatibus nemo obcaecati odio odit officia optio quae, quia
+    quis quo ratione recusandae reprehenderit sit, vitae? A consequuntur, dignissimos distinctio doloribus eaque earum
+    fugiat harum neque repellat sunt veniam voluptatem voluptates. Ad consectetur consequatur culpa delectus dolor eius
+    eveniet exercitationem, facere fugiat itaque, minus molestiae neque officia omnis perferendis perspiciatis placeat
+    quibusdam quidem quis ratione totam unde vitae voluptatem? Ab at, consequuntur debitis delectus, deserunt distinctio
+    ea enim in minima minus natus, necessitatibus non officia perspiciatis porro quaerat quam quas quis repellat
+    sapiente sit tempore tenetur. Aliquam assumenda consequuntur ipsa iste iure natus qui, quisquam voluptate! Impedit
+    minima, necessitatibus nemo nobis officiis voluptatibus. Aut dolore dolorem eos esse eveniet harum illo in inventore
+    ipsum iure laboriosam maiores nemo, nulla possimus quidem, quo, repudiandae sed sequi suscipit ullam unde veritatis
+    vero. Beatae distinctio eligendi, explicabo labore laborum modi perferendis quam quibusdam similique veniam? Ab
+    accusamus blanditiis consequatur laudantium provident quidem, tenetur? Consectetur deleniti explicabo illum ipsum
+    libero natus officiis quidem soluta sunt, veritatis? A adipisci aliquam animi architecto asperiores atque beatae
+    consequuntur corporis cupiditate debitis deleniti deserunt dolorem doloribus, earum esse ex harum impedit incidunt,
+    inventore, ipsa iste itaque iusto magnam molestiae mollitia necessitatibus nobis non porro possimus quaerat qui
+    quisquam rerum sequi totam ullam velit veniam. Asperiores consequatur cum delectus, eligendi eum iste minus
+    molestiae nihil quidem rerum saepe sunt! Accusamus iure necessitatibus non obcaecati tempora temporibus tenetur
+    veniam? Beatae dicta ducimus laudantium necessitatibus ratione, tempore! Accusamus accusantium ad assumenda at aut
+    blanditiis consequatur dicta ducimus ea earum expedita fuga id in incidunt ipsum itaque necessitatibus nihil non
+    odio odit omnis optio quas quasi quo recusandae reiciendis, repellat repellendus saepe sed similique sunt temporibus
+    vel voluptate! A commodi consequatur cum cumque doloremque ducimus, eveniet id ipsa laboriosam laborum perferendis
+    provident quas quos reprehenderit sint sit veritatis, voluptates. Ab aspernatur corporis deleniti deserunt
+    dignissimos dolore dolorem doloremque dolores earum est excepturi expedita fuga fugit id iste minus molestiae neque
+    nisi obcaecati odit, pariatur placeat provident qui quibusdam quisquam, quo ratione saepe? Accusantium atque
+    blanditiis cupiditate deleniti dolorum expedita explicabo iure laborum nemo nobis pariatur placeat quam quibusdam
+    rerum sapiente sint soluta sunt suscipit velit, vero! A alias amet beatae error illum iure laudantium, magnam modi
+    nam pariatur porro quam quisquam repudiandae saepe sit veritatis voluptate? Ad at neque praesentium quaerat quasi,
+    ullam. Aperiam aspernatur at, commodi corporis cum delectus dolor dolores doloribus ducimus earum error excepturi
+    exercitationem hic labore laborum magnam, molestiae nisi odit omnis praesentium quasi quo ratione reiciendis sint
+    tempore ut, veritatis voluptate? Accusantium aut, cumque doloremque ducimus excepturi magni praesentium totam? Cum
+    dolorem explicabo necessitatibus officiis quidem. Aspernatur delectus explicabo odio sapiente, similique tenetur.
+    Accusantium debitis dignissimos ducimus eligendi maxime molestiae nobis, quo rem totam veniam. Ab adipisci atque aut
+    autem beatae consequatur, cumque dolores eaque, error esse expedita facilis fugit hic impedit itaque iusto maxime
+    minima molestiae molestias natus nemo nihil nostrum numquam obcaecati officia perferendis perspiciatis placeat
+    quaerat quidem quod ratione recusandae repellendus rerum unde ut velit vero. Dignissimos in modi quibusdam, rem
+    similique veniam voluptate? Ad aliquam animi asperiores dolor, doloremque dolorum esse harum, laudantium libero
+    magni minus neque nesciunt nisi quibusdam quidem quo sapiente tempora temporibus totam unde ut velit voluptatum!
+    Accusamus blanditiis culpa deleniti hic incidunt itaque minus praesentium quidem sequi ut. Accusantium, aspernatur
+    at aut beatae commodi consequuntur dicta dolor dolore eos error, esse ex expedita mollitia nemo perspiciatis
+    provident quibusdam tempora tempore unde voluptate! Ad architecto doloribus eius esse eveniet incidunt ipsum iusto
+    libero officia provident quae quaerat, qui similique, soluta vitae voluptas voluptatum! Autem blanditiis consectetur
+    cumque dolor dolorum earum eos est excepturi explicabo fuga hic inventore maiores nemo neque non, nulla porro
+    possimus, sunt vero voluptatibus! Ab aliquid aspernatur at aut blanditiis culpa deleniti deserunt dolores error
+    facilis illo impedit in iusto laudantium nemo nisi nobis odio, pariatur perspiciatis quaerat quis tempora velit
+    voluptate, voluptatem voluptatum. Accusamus adipisci beatae distinctio dolor dolore dolorem eum, eveniet ipsam
+    laudantium libero minima mollitia, neque numquam officia provident ullam veritatis! Amet dolorem doloribus dolorum
+    eveniet laudantium repellat repudiandae. Consectetur deleniti dolores ipsam minus modi. Ducimus earum fuga omnis
+    quas velit. Blanditiis commodi cum cupiditate deserunt, distinctio ducimus earum, ex harum, impedit maiores modi
+    mollitia nam numquam possimus recusandae rem repellendus saepe sapiente sunt velit? Aperiam atque aut autem
+    blanditiis dicta dolore dolorem doloribus ea eos esse, est et expedita fugit, hic id laudantium molestias nam
+    numquam officia officiis placeat porro quaerat quas quia recusandae reprehenderit sapiente similique ullam ut velit
+    veritatis, vero voluptate voluptatum. Ad aliquam at consequatur cum deserunt, doloribus dolorum error et excepturi
+    fuga illo inventore ipsum minus quaerat quibusdam quidem tenetur ullam voluptate! Architecto aut cumque natus nemo,
+    nobis non sint. Autem doloribus quibusdam tempora tempore voluptas! Amet corporis debitis delectus eius enim
+    explicabo hic impedit laudantium minus molestias nobis nulla omnis, praesentium quae quia sed, sequi tenetur veniam!
+    Amet assumenda consectetur debitis dolore error eum explicabo fugit iste maxime molestiae nesciunt odio pariatur
+    quod ratione rem, reprehenderit soluta tempora unde vel voluptatum. Blanditiis cumque delectus earum error,
+    explicabo inventore nam, officiis, optio reiciendis repudiandae voluptates voluptatibus? Aperiam architecto deserunt
+    expedita facilis maiores quaerat voluptates. Asperiores at cupiditate in ipsam vitae. Cumque excepturi iste
+    obcaecati reiciendis ullam vel.</p>
+
+<canvas></canvas>
+
+<script>
+    // setup canvas
+
+    const canvas = document.querySelector("canvas");
+    const mouse_elem = document.getElementById("mouse");
+    const body = document.body;
+    const ctx = canvas.getContext("2d");
+
+    const width = (canvas.width = window.innerWidth-17);
+    const height = (canvas.height = window.innerHeight);
+
+    // function to generate random number
+
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // function to generate random color
+
+    function randomRGB() {
+        return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
+    }
+
+    class mouse extends Ball {
+        constructor(x, y) {
+            super(x, y, 0, 0, 'hotpink', 5);
+        }
+    }
+
+    function updateDisplay(event) {
+
+        m.x = event.clientX;
+        m.y = event.clientY;
+        const scrollTop = (window.scrollY !== undefined) ? window.scrollY : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+        // mouse_elem.animate({
+        //     left: `${event.clientX}px`,
+        //     top: `${event.clientY + scrollTop}px`
+        //
+        // }, {duration: 250, fill: "forwards"})
+        mouse_elem.style.left = `${event.clientX}px`;
+        mouse_elem.style.top = `${event.clientY + scrollTop}px`
+    }
+
+
+    body.addEventListener("mousemove", updateDisplay, false);
+    body.addEventListener("wheel", updateDisplay, false);
+
+    function Ball(x, y, velX, velY, color, size) {
+        this.x = x;
+        this.y = y;
+        this.velX = velX;
+        this.velY = velY;
+        this.color = color;
+        this.size = size;
+        this.accel = 1;
+    }
+
+    Ball.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+        ctx.fill();
+    };
+    Ball.prototype.lines = function () {
+        for (let i = 0; i < balls.length; i++) {
+            if (this === balls[i]) {
+                return;
+            }
+            const dx = this.x - balls[i].x;
+            const dy = this.y - balls[i].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+            ctx.strokeStyle = "rgb(from " + this.color + " r g b / " + (400 / distance - 0.5) + ")";
+
+            ctx.lineTo(balls[i].x, balls[i].y);
+            ctx.stroke();
+
+        }
+    };
+    let bounciness = 4;
+    Ball.prototype.update = function () {
+        if (this.x + this.size >= width) {
+            this.velX = -this.velX;
+            this.accel = random(1, bounciness);
+        }
+        if (this.x - this.size <= 0) {
+            this.velX = -this.velX;
+            this.accel = random(1, bounciness);
+        }
+        if (this.y + this.size >= height) {
+            this.velY *= -1;
+            this.accel = random(1, bounciness);
+        }
+        if (this.y - this.size <= 0) {
+            this.velY *= -1;
+            this.accel = random(1, bounciness);
+        }
+        this.x += this.velX * this.accel;
+        this.y += this.velY * this.accel;
+        this.accel -= 0.05;
+        this.accel = Math.max(1, this.accel);
+    };
+    Ball.prototype.collisionDetect = function () {
+        for (let i = 0; i < balls.length; i++) {
+            if (!(this === balls[i])) {
+                const dx = this.x - balls[i].x;
+                const dy = this.y - balls[i].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.size + balls[i].size) {
+                    balls[i].velX *= -1;
+                    balls[i].velY *= -1;
+                    this.velX *= -1;
+                    this.velY *= -1;
+                }
+            }
+        }
+    };
+
+    let balls = [];
+    let maxVelocity = 0.51;
+
+    while (balls.length < 18) {
+        let size = random(2, 2);
+        let ball = new Ball(
+            random(0 + size, width - size),
+            random(0 + size, height - size),
+            random(-maxVelocity, maxVelocity),
+            random(-maxVelocity, maxVelocity),
+            "whitesmoke",
+            size,
+        );
+        balls.push(ball);
+    }
+    let m = new mouse(50, 50);
+    // let b1 = new Ball(0,0,0,0,"white",3);
+    // let b2 = new Ball(width,height,0,0,"white",3);
+    // let b3 = new Ball(0,height,0,0,"white",3);
+    // let b4 = new Ball(width,0,0,0,"white",3);
+    // balls.push(b1);
+    // balls.push(b2);
+    // balls.push(b3);
+    // balls.push(b4);
+    function loop() {
+        ctx.fillStyle = "rgba(10,10,10,1)";
+        ctx.fillRect(0, 0, width, height);
+        for (let i = 0; i < balls.length; i++) {
+            balls[i].draw();
+            balls[i].lines();
+            balls[i].update();
+            balls[i].collisionDetect();
+        }
+        requestAnimationFrame(loop);
+
+        m.draw();
+        m.lines();
+        m.update();
+    }
+
+    loop();
+
+</script>
+</body>
+</html>

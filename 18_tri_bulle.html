@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sorting algos</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>sorting algos</h1>
+<script>
+
+    let array = [];
+    let length = 10;
+    let sortedArray = [];
+
+
+    function generateRandomArray() {
+        array.length = length;
+        for (let i = 0; i < array.length; i++) {
+            array[i] = Math.floor(Math.random() * (length * 4));
+        }
+
+        console.log("starting array = " + array);
+    }
+
+    // console.time("selection");
+    // console.groupCollapsed("selection");
+    // generateRandomArray();
+    // console.log("starting selection sort");
+    // sortSelection(array.slice());
+    // console.groupEnd();
+    // console.timeLog("selection");
+    //
+    //
+    // console.time("bubble");
+    // console.groupCollapsed("bubble");
+    // // generateRandomArray();
+    // console.log("starting bubble sort");
+    // sortBubble(array);
+    // console.log("bubble sort ended");
+    // console.groupEnd();
+    // console.timeLog("bubble");
+    //
+    // console.time("bubbleOpti");
+    // console.groupCollapsed("bubbleOpti");
+    // // generateRandomArray();
+    // console.log("starting bubble sort opti");
+    // sortBubble(array);
+    // console.log("bubble sort opti ended");
+    // console.groupEnd();
+    // console.timeLog("bubbleOpti");
+    //
+    //
+    // console.time("jeSaisPas");
+    // console.groupCollapsed("jeSaisPas");
+    // // generateRandomArray();
+    // console.log("starting jeSaisPas sort");
+    // sortJeSaisPas(array);
+    // console.log("jeSaisPas sort ended");
+    // console.groupEnd();
+    // console.timeLog("jeSaisPas");
+
+
+    console.time("insertion");
+    console.groupCollapsed("insertion");
+    generateRandomArray();
+    console.log("starting insertion sort");
+    sortInsertion(array);
+    console.log("insertion sort ended");
+    console.groupEnd();
+    console.timeLog("insertion");
+
+    console.time("sort");
+    console.groupCollapsed("sort method");
+    // generateRandomArray();
+    console.log("starting sort");
+    array = array.sort();
+    console.log("sort ended");
+    console.groupEnd();
+    console.timeLog("sort");
+
+    function sortSelection(array ) {
+        let min;
+        let length = array.length;
+        for (let i = 0; i < length; i++) {
+            min = findMin(array);
+            // let index = array.indexOf(min);
+            let indexOf = 0;
+            for (let j = 0; j < array.length; j++) {
+                if (array[j] === min) {
+                    indexOf = j;
+                }
+            }
+            sortedArray.push(array[indexOf]);
+            array.splice(indexOf, 1);
+        }
+        console.log("sorted array = " + sortedArray);
+    }
+    function sortSelectionOpti(array) {
+        let indexMin;
+        for (let i = 0; i < array.length; i++) {
+            indexMin = i;
+            for (let j = 0; j < array.length; j++) {
+                if (array[j] < array[indexMin]) {
+                    indexMin = j;
+                }
+            }
+            let min = array[indexMin];
+            array.splice(indexMin, 1);
+            array.splice(i, 0, min);
+        }
+    }
+
+    function sortBubbleOpti(array) {
+        let sorted = false;
+        // while(!isSorted(array)) {
+        while(!sorted) {
+            sorted = true;
+            for (let i = 0; i < array.length - 1; i++) {
+                let a = array[i];
+                let b = array[i + 1];
+                // console.log("testing " + a + " vs " + b);
+                if (a > b) {
+                    array[i] = b;
+                    array[i + 1] = a;
+                    sorted = false;
+                }
+            }
+        }
+        // console.count("iterationBubble");
+        // console.log("bubble sorted array (iteration : ) = " + array);
+    }
+    function sortBubble(array) {
+        while(!isSorted(array)) {
+            for (let i = 0; i < array.length - 1; i++) {
+                let a = array[i];
+                let b = array[i + 1];
+                // console.log("testing " + a + " vs " + b);
+                if (a > b) {
+                    array[i] = b;
+                    array[i + 1] = a;
+                }
+            }
+        }
+        // console.count("iterationBubble");
+        // console.log("bubble sorted array (iteration : ) = " + array);
+    }
+
+    function sortJeSaisPas(array) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array.length ; j++) {
+                let a = array[i];
+                let b = array[j];
+                if (a < b) {
+                    array[i] = b;
+                    array[j] = a;
+                }
+                count++;
+            }
+        }
+        console.log(count);
+        console.log("sorted array = " + array);
+    }
+    function sortInsertion(array) {
+        let count = 0;
+        for (let i = 1; i < array.length; i++) {
+            let a = array[i];
+            for (let j = i-1; j >= 0  ; j--) {
+                let b = array[j];
+                console.log("a = " + a);
+                console.log("b = " + b);
+                if (a < b) {
+                    array[i] = b;
+                    array[j] = a;
+                    i=j;
+                }
+                console.log("new array = " + array);
+            }
+            count++;
+            console.count("ite");
+        }
+        console.log(count);
+        console.log("sorted array = " + array);
+    }
+
+    function isSorted(array) {
+        let sorted = true;
+        for (let i = 0; i < array.length - 1; i++) {
+            let a = array[i];
+            let b = array[i + 1];
+            if (a > b) {
+                sorted = false;
+            }
+        }
+
+        return sorted;
+    }
+
+    function findMin(array) {
+        let min = null;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] < min || min === null) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+
+    function isPresent(num, inArray) {
+        for (let i = 0; i < inArray.length; i++) {
+            if (inArray[i] === num) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+</script>
+</body>
+</html>

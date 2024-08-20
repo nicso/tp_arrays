@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>classes</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>classes</h1>
+<script>
+class Person{
+    constructor(nom, age) {
+        this.nom = nom;
+        this.age = age;
+    }
+    sePresenter(){
+        console.log("Bonjour, je suis " + this.nom);
+    }
+}
+
+class Etudiant extends Person{
+    constructor(nom,age,ecole) {
+        super(nom,age);
+        this.ecole = ecole;
+    }
+    etudier(){
+        console.log(this.nom + " étudie");
+    }
+}
+
+let studient = new Etudiant("rodolphe", 43, "afpa");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>classes</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+        .animal{
+            height: 50px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            transform: translateX(0px);
+            transition: 0.6s;
+        }
+        #Franklin{
+            background: #60ab4f;
+        }
+    </style>
+</head>
+<body>
+<h1>Classes</h1>
+<script>
+
+    class animal{
+        constructor(pawsCnt, name, color, age) {
+            this.pawsCnt = pawsCnt;
+            this.name = name;
+            this.color = color;
+            this.age = age;
+
+            this.div = document.createElement("div");
+            this.div.classList.add("animal");
+            this.div.id = this.name;
+            document.body.appendChild(this.div);
+            document.getElementById(this.name).style.backgroundColor = "#" + this.color;
+            this.pos = 0;
+            this.size = 50;
+        }
+        display(){
+
+        }
+        move(distance) {
+            console.log(this.name + " se déplace de " + distance + " px");
+            this.pos += distance;
+            document.getElementById(this.name).style.transform = "translateX(" + this.pos + "px)";
+        }
+        eat(food){
+            console.log(this.name + " mange " + food);
+            this.size += 20;
+            document.getElementById(this.name).style.height = this.size + "px";
+        }
+
+    }
+
+    let dog = new animal(4, 'Scooby', 'ab744f', 7);
+    let turtle = new animal(4, 'Franklin', '60ab4f', 56);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let day = parseInt(prompt("jour : "));
+        let month = parseInt(prompt("mois : "));
+        let year = parseInt(prompt("année : "));
+        let correct = false;
+        let nbJours = 0;
+
+        if (month > 0 && month <= 12) {
+            if (month == 4 || month == 6 || month == 9 || month == 11) {
+                nbJours = 30;
+            } else if (month == 2) {
+                if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+                    nbJours = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) ? 29 : 28;
+                }
+            } else {
+                nbJours = 31;
+            }
+        }        
+        if (day <= nbJours && (day <= 0 && day > 30) ) {
+            correct = true;
+        }
+        alert(correct ? "date valide" : "date invalide");
+    </script>
+</body>
+
+</html>

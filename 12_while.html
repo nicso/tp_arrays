@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background: #eee;
+            font-family: Calibri;
+            margin: 50px;
+        }
+        h1{
+            color: #333;
+            font-size: 2.5rem;
+            /*font-weight: normal;*/
+        }
+        #btn, #number, h2{
+            color: #333;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+        #btn{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1 id="title">Factoriel de 1</h1>
+<h2 id="result">1</h2>
+<h2 id="resultb">1</h2>
+<input type="number" id="number" onchange="compute()" value="1">
+<script>
+
+    const title = document.getElementById("title");
+    const result = document.getElementById("result");
+    const resultb = document.getElementById("resultb");
+    const num = document.getElementById('number');
+
+    function compute(){
+        let value = num.value;
+        let factorielBig = BigInt(1);
+        let factoriel = 1;
+        for (let i = 1; i <= value; i++) {
+            factoriel = factoriel * i ;
+        }
+        for (let i = BigInt(1); i <= value; i++) {
+            factorielBig = factorielBig * i ;
+        }
+        title.innerHTML = "Factoriel de " + value.toString();
+        result.innerHTML = factoriel;
+        resultb.innerHTML = factorielBig;
+    }
+</script>
+</body>
+</html>

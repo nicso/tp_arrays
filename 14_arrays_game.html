@@ -247,26 +247,26 @@
         if (event.code == 'ArrowDown' || event.code == 'ArrowUp' || event.code == 'ArrowLeft' || event.code == 'ArrowRight'){
 
             oldPos = playerPos.slice();
-            if (event.code == 'ArrowDown') {
+            if (event.code === 'ArrowDown') {
                 movePieceDown();
                 randomMove();
             }
-            if (event.code == 'ArrowUp') {
+            if (event.code === 'ArrowUp') {
                 movePieceUp();
                 randomMove();
             }
-            if (event.code == 'ArrowLeft') {
+            if (event.code === 'ArrowLeft') {
                 movePieceLeft();
                 randomMove();
             }
-            if (event.code == 'ArrowRight') {
+            if (event.code === 'ArrowRight') {
                 movePieceRight();
                 randomMove();
             }
-            if(event.code == 'Space'){
+            if(event.code === 'Space'){
                 randomMove();
             }
-            if(playerPos[0] == oldPos[0] && playerPos[1] == oldPos[1] ){
+            if(playerPos[0] === oldPos[0] && playerPos[1] === oldPos[1] ){
                 alert("perdu -> " + score + " moves");
                 location.reload();
             }else{

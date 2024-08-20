@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Facture</h1>
+    <p id="copies10">copies a 0.10€</p>
+    <p id="copies09">copies a 0.09€</p>
+    <p id="copies08">copies a 0.08€</p>
+    <p id="total">total : </p>
+    <script>
+
+        let copies = prompt("nombre de copies : ");
+        let prix = 0.0;
+        let nb_copies10 = 0;
+        let nb_copies09 = 0;
+        let nb_copies08 = 0;
+
+        nb_copies08 = copies - 30  ;
+        if(nb_copies08 <= 0) nb_copies08 = 0;
+
+        nb_copies09 = (copies - nb_copies08) - 10  ;
+        if(nb_copies09 <= 0) nb_copies09 = 0;
+        
+        nb_copies10 = copies - nb_copies09 - nb_copies08;
+        if(nb_copies10 <= 0) nb_copies10 = 0;
+
+        prix = nb_copies08 * 0.08 + nb_copies09 * 0.09 + nb_copies10 * 0.1
+
+        let elem10 = document.getElementById("copies10");
+        let elem09 = document.getElementById("copies09");
+        let elem08 = document.getElementById("copies08");
+        let total = document.getElementById("total");
+
+        elem10.textContent = nb_copies10 + " copies a 0.10€ = " + nb_copies10 * 0.1 + " €"
+        elem09.textContent = nb_copies09 + " copies a 0.09€ = " + nb_copies09 * 0.09 + " €"
+        elem08.textContent = nb_copies08 + " copies a 0.08€ = " + nb_copies08 * 0.08 + " €"
+        total.textContent = "Total pour "+copies+" copies = " + prix + " €"
+
+    </script>
+    
+</body>
+</html>

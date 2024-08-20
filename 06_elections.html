@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let scorea = prompt("score");
+        let scoreb = prompt("score");
+        let scorec = window.prompt("score");
+        let scored = prompt("score");
+
+        if (scorea > 50) {
+            alert("bravo")
+        } else if (scoreb > 50 || scorec > 50 || scored > 50 ) {
+            alert("déso");
+        } else if(scorea < 12.5) {
+            if (scorea > scoreb && scorea > scorec && scorea > scored) {
+                alert("ballottage favorable");
+            } else {
+                alert("ballottage défavorable");
+            }
+        }else {
+            alert("déso");
+        }
+
+    </script>
+
+</body>
+
+</html>

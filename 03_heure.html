@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=*, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heure"></h1>
+    <script>
+
+        let elem = document.getElementById("heure");
+
+        let h = parseInt(prompt("heure"));
+        let m = parseInt(prompt("minutes"));
+        let s = parseInt(prompt("secondes"));
+        s += 1;
+
+        if(s >= 60)
+        {
+            s = 0;
+            m ++;
+        }
+        if(m >= 60){
+            m=0;
+            h ++;
+        }
+        if(h >= 24){
+            h = 0;
+        }        
+        
+        if(String(h).length == 1){
+            h = "0" + h;
+        }
+        if(String(m).length == 1){
+            m = "0" + m;
+        }
+        if(String(s).length == 1){
+            s = "0" + s;
+        }
+
+        elem.textContent = "il est maintenant " + h + ":" + m + ":" + s;
+
+    </script>
+</body>
+</html>

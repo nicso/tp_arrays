@@ -39,8 +39,11 @@
 <input type="text" name="" id="phrase" placeholder="phrase à crypter">
 <br>
 <input type="text" name="" id="key" placeholder="clé">
+<br>
+<br>
+<h2 id="result">crypté</h2>
 
-<h2 id="result">resultat</h2>
+<h2 id="decrypt">décrypté</h2>
 
 <script>
     //     Un système de cryptographie beaucoup plus difficile à briser que les précédents fut inventé au XVIe
@@ -67,6 +70,7 @@
     const phraseElem = document.getElementById("phrase");
     const keyElem = document.getElementById("key");
     const resultElem = document.getElementById("result");
+    const decryptElem = document.getElementById("decrypt");
 
 
     let phraseIn = "Il faut coder cette phrase";
@@ -75,10 +79,12 @@
 
 
     phraseElem.addEventListener("input", (e) => {
-        resultElem.innerText = encrypt(phraseElem.value, keyElem.value);
+        resultElem.innerText = "crypté = " + encrypt(phraseElem.value, keyElem.value);
+        decryptElem.innerText = "décrypté = " + decrypt(phraseElem.value, keyElem.value);
     });
     keyElem.addEventListener("input", (e) => {
-        resultElem.innerText = encrypt(phraseElem.value, keyElem.value);
+        resultElem.innerText = "crypté = " + encrypt(phraseElem.value, keyElem.value);
+        decryptElem.innerText = "décrypté = " + decrypt(phraseElem.value, keyElem.value);
     });
 
 
@@ -95,12 +101,10 @@
         key = key.toLowerCase();
 
         for (let i = 0; i < phraseIn.length; i++) {
-
-
             if (!alphabet.includes(phraseIn[i])) {
                 phraseOut += phraseIn[i];
             } else {
-                let keyIndex = alphabet.indexOf(key[charIndex % key.length]);
+                let keyIndex = alphabet.indexOf(key[charIndex % key.length]) ;
                 let phraseIndex = alphabet.indexOf(phraseIn[i]);
                 offset = (phraseIndex + keyIndex) % alphabet.length;
                 phraseOut += alphabet[offset];
@@ -108,12 +112,35 @@
                 charIndex++;
             }
         }
-        console.log(phraseOut);
-        console.log(key);
         return phraseOut;
     }
 
+    function decrypt(phraseIn, key) {
+        let offset = 0;
+        let charIndex = 0;
+        let phraseOut = "";
 
+        if (key === '') {
+            key = 'a';
+        }
+
+        phraseIn = phraseIn.toLowerCase();
+        key = key.toLowerCase();
+
+        for (let i = 0; i < phraseIn.length; i++) {
+            if (!alphabet.includes(phraseIn[i])) {
+                phraseOut += phraseIn[i];
+            } else {
+                let keyIndex =  alphabet.indexOf(key[charIndex % key.length ]) ;
+                let phraseIndex = alphabet.indexOf(phraseIn[i]);
+                offset = phraseIndex - keyIndex;
+                offset = (offset + 26) % alphabet.length;
+                phraseOut += alphabet[offset];
+                charIndex++;
+            }
+        }
+        return phraseOut;
+    }
 </script>
 </body>
 </html>

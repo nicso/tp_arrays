@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let nom = prompt("Votre nom");
+        alert(bonjour(nom));
+
+        function bonjour(text) {
+            return "bonjour " + text + "!";
+        }
+
+
+        let number1 = parseFloat(prompt("premier nombre"));
+        let number2 = parseFloat(prompt("deuxieme nombre"));
+        alert("resultat : " + addition(number1,number2));
+        function addition(num1, num2){
+            return num1 + num2;
+        }
+
+
+        let fizzNum = parseInt(prompt("fizz number :"));
+        alert(fizzBuzz(fizzNum));
+
+        function fizzBuzz(num){
+
+            let r = "";
+            if(num % 3 === 0){
+                r += "Fizz";
+            }
+            if(num % 5 === 0){
+                r += "Buzz";
+            }
+            return r != "" ? r : num;
+        }
+
+            
+    </script>
+</body>
+</html>

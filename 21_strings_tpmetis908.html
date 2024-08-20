@@ -51,8 +51,8 @@
 
     phraseIn = phraseIn.toLowerCase();
     for (let i = 0; i < phraseIn.length; i++) {
-        if(phraseIn[i] === ' ') {
-            phraseOut += ' ';
+        if (!alphabet.includes(phraseIn[i])) {
+            phraseOut += phraseIn[i];
         }else {
             phraseOut += alphabet[(i)%alphabet.length];
         }

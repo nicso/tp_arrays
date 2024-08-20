@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //let number = parseInt( prompt("nombre : ") );
+
+    function factorielle(num){
+        if(num === 0 ){
+            return 1;
+        }else{
+            return num * factorielle(num - 1);
+        }
+    }
+
+    function somme(num){
+        if(num > 0 ){
+            return num + somme(num - 1);
+        }
+        return num;
+    }
+
+    //1 1 2 3 5 8 13 21
+    // n = n[-1] + n[-2]
+    // n >= 2
+
+    // 8 = 5 + 3
+    // 3 = 8 - 5
+    let f = 0;
+    let f0 = 0;
+    let f1 = 1;
+
+
+    function fibo(num){
+        if(num === 0){
+            return 0;
+        }
+        if(num === 1){
+            return 1;
+        }
+        if(num >= 2){
+            f = fibo(num - 2) + fibo(num - 1);
+            return f;
+        }
+    }
+    console.log("f = " + f);
+
+    //console.log(fibo(number));
+
+
+</script>
+</body>
+</html>

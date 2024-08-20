@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let permisValide = prompt("permis valide ?") === "oui";
+        
+        let exp = 0;
+        exp = prompt("Années d'experience");
+
+        
+
+
+        if(permisValide == true && exp >= 2){
+            alert("v1 : ça passe");
+        }else{
+            alert("v1 : ça passe pas trop");
+        }
+        
+
+        if(permisValide == false || exp < 2){
+            alert("v2 : ça passe pas trop");
+        }else{
+            alert("v2 : ça passe");
+        }
+
+    </script>
+</body>
+</html>

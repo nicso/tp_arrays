@@ -1,0 +1,9 @@
+Que produit l’algorithme suivant ?
+Variables A, B, C en Caractères
+Début
+A ← "423"
+B ← "12"
+C ← A + B
+Fin
+
+435

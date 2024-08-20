@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style_calc.css">
+</head>
+<body>
+
+    <section class="container">
+        <div class="grid grid-display">
+            <div id="interface">
+                <button class="btn btn-display" onclick="num_clk(this)" id="memory">mem</button>
+                <button class="btn btn-display" onclick="num_clk(this)" id="display">666</button>
+            </div>
+            <button class="btn btn-clear" onclick="clear_dsp()">C</button>
+
+        </div>
+
+        <div class="grid grid-num ">
+            <button class="btn btn-num" onclick="num_clk(this)">7</button>
+            <button class="btn btn-num" onclick="num_clk(this)">8</button>
+            <button class="btn btn-num" onclick="num_clk(this)">9</button>
+            <button class="btn btn-num" onclick="num_clk(this)">4</button>
+            <button class="btn btn-num" onclick="num_clk(this)">5</button>
+            <button class="btn btn-num" onclick="num_clk(this)">6</button>
+            <button class="btn btn-num" onclick="num_clk(this)">1</button>
+            <button class="btn btn-num" onclick="num_clk(this)">2</button>
+            <button class="btn btn-num" onclick="num_clk(this)">3</button>
+            <button class="btn btn-num" onclick="num_clk(this)">+/-</button>
+            <button class="btn btn-num" onclick="num_clk(this)">0</button>
+            <button class="btn btn-num" onclick="num_clk(this)">.</button>
+        </div>
+
+
+        <div class="grid grid-operators">
+            <button class="btn btn-op" onclick="num_clk(this)">/</button>
+            <button class="btn btn-op" onclick="num_clk(this)">x</button>
+            <button class="btn btn-op" onclick="num_clk(this)">-</button>
+            <button class="btn btn-op" onclick="num_clk(this)">+</button>
+            <button class="btn btn-op" onclick="num_clk(this)">%</button>
+            <button class="btn btn-op btn-accent" onclick="num_clk(this)">=</button>
+        </div>
+
+    </section>
+
+
+    <script src="calculatrice.js"></script>
+</body>
+</html>
