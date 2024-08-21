@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>maps</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>maps</h1>
+<script>
+    // Créez un Map vide.
+    // Ajoutez trois paires clé-valeur au Map : "pomme" → 2, "banane" → 3, "orange" → 5.
+    // Modifiez la valeur associée à la clé "banane" pour qu'elle soit 7.
+    // Supprimez la paire ayant la clé "pomme".
+    // Affichez la valeur associée à la clé "orange".
+    // Affichez toutes les clés et valeurs du Map.
+
+
+    let myMap = new Map();
+    myMap.set("pomme", 2);
+    myMap.set("banane", 3);
+    myMap.set("orange", 5);
+
+    myMap.set("banane", 7);
+    myMap.delete("pomme");
+
+    console.log("orange = " + myMap.get("orange"));
+
+    for (const myMapElement of myMap) {
+        console.log(myMapElement);
+    }
+
+    myMap.forEach((v,k) => console.log( "value = " + v + " key = " + k ));
+
+    // Reprenez le Map de l'exercice précédent.
+    // Vérifiez si la clé "banane" existe dans le Map.
+    // Vérifiez si la clé "pomme" existe dans le Map.
+    // Affichez la taille du Map.
+
+    console.log('la clé "banane" ' + (myMap.has("banane")? "existe": "n'existe pas") );
+    console.log('la clé "pomme" ' + (myMap.has("pomme")? "existe": "n'existe pas") );
+    console.log("taille de la map = " + myMap.size);
+
+    // Créez un Set vide.
+    // Ajoutez les valeurs 1, 2, 3, 4, 5 au Set.
+    // Tentez d'ajouter la valeur 3 au Set à nouveau.
+    // Supprimez la valeur 2 du Set.
+    // Affichez la taille du Set.
+    // Affichez toutes les valeurs du Set.
+
+    let myset = new Set();
+    myset.add(1);
+    myset.add(2);
+    myset.add(3);
+    myset.add(4);
+    myset.add(5);
+
+    myset.add(3);
+
+    myset.delete(2);
+    console.log("taille de myset = " + myset.size);
+
+    for (const mysetElement of myset) {
+        console.log(mysetElement);
+    }
+
+
+
+
+</script>
+</body>
+</html>

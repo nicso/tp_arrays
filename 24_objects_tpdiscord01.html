@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tp 01</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>tp 01</h1>
+<script>
+    // Crée une classe Livre avec les propriétés suivantes :
+    // titre : le titre du livre (une chaîne de caractères).
+    // auteur : l'auteur du livre (une chaîne de caractères).
+    // annéePublication : l'année de publication du livre (un nombre).
+    //
+    // Ensuite, ajoute une méthode getDescription() qui renvoie une chaîne de caractères décrivant le livre, par exemple : "Le livre 'Le Petit Prince' a été écrit par Antoine de Saint-Exupéry en 1943."
+    class Livre {
+        constructor(title, author, publicationDate) {
+            this.title = title;
+            this.author = author;
+            this.publicationDate = publicationDate;
+        }
+
+        getDescription() {
+            return (`Le livre '${this.title}' a été écrit par ${this.author} en ${this.publicationDate}.`);
+        }
+    }
+
+    let prince = new Livre("petit Prince", "st éxu", 1943);
+    console.log(prince.getDescription());
+
+
+    /*
+    Crée une classe Film avec les propriétés suivantes :
+    titre : le titre du film (une chaîne de caractères).
+    réalisateur : le réalisateur du film (une chaîne de caractères).
+    annéeSortie : l'année de sortie du film (un nombre).
+    genre : le genre du film (une chaîne de caractères).
+    
+    Ensuite, crée une autre classe BibliothèqueDeFilms qui contient un tableau de films. Cette classe doit avoir les méthodes suivantes :
+    ajouterFilm(film) : ajoute un film à la collection.
+    rechercherParGenre(genre) : retourne tous les films du genre donné.
+    afficherTousLesFilms() : affiche tous les films avec leurs détails.
+     */
+
+    class Movie{
+        title;
+        real;
+        date;
+        genre;
+        constructor(title, real, date, genre) {
+            this.title = title;
+            this.real = real;
+            this.date = date;
+            this.genre = genre;            
+        }
+    }
+    class Bibliotheque {
+        constructor() {
+            this.collection = [];
+        }
+        addMovie(movie){
+            this.collection.push(movie);
+        }
+        searchByGenre(genre){
+            let movies = [];
+            for (const collectionElement of this.collection) {
+                if(collectionElement.genre === genre) movies.push(collectionElement);
+            }
+            return movies;
+        }
+        displayAll(){
+            console.table(this.collection);
+        }
+    }
+
+    let alien = new Movie("alien", "Ridley Scott", "1979" , "horror");
+    let alien2 = new Movie("aliens", "James Cameron", "1986" , "horror");
+    let alien3 = new Movie("alien 3", "David Fincher", "1992" , "horror");
+    let alien4 = new Movie("alien, la résurrection", "Jean-Pierre Jeunet", "1997" , "horror");
+
+    let bladeRunner = new Movie("Blade Runner", "Ridley Scott", "1982" , "science-fiction");
+    let terminator = new Movie("Terminator", "James Cameron", "1984" , "science-fiction");
+    let terminator2 = new Movie("Terminator 2", "James Cameron", "1991" , "science-fiction");
+
+    let collec = new Bibliotheque();
+    collec.addMovie(alien);
+    collec.addMovie(alien2);
+    collec.addMovie(alien3);
+    collec.addMovie(alien4);
+    collec.addMovie(bladeRunner);
+    collec.addMovie(terminator);
+    collec.addMovie(terminator2);
+
+    collec.displayAll();
+    console.table(collec.searchByGenre("science-fiction"));
+
+    
+    
+    
+    
+    
+    
+
+</script>
+</body>
+</html>

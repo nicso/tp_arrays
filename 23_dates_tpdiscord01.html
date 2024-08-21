@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dates 01</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>dates 01</h1>
+<script>
+    // Créez une fonction calculateAge qui prend en paramètre une date de naissance au format YYYY-MM-DD.
+    // La fonction doit retourner l'âge de la personne en années.
+    // Testez la fonction avec différentes dates de naissance, par exemple "1990-08-15", "2000-01-01", et "1985-12-25".
+
+    console.log(
+        calculateAge("1998-08-22")
+    );
+    function calculateAge(birthdate){
+        let birth = new Date(birthdate).getTime();
+        let date = new Date().getTime();
+        return parseInt( (date - birth) / 31556952000 );
+        //31557600000
+        //31556952000
+    }
+
+
+    // Créez une fonction daysUntil qui prend en paramètre une date future au format YYYY-MM-DD.
+    // La fonction doit retourner le nombre de jours restants avant cette date.
+    // Testez la fonction avec plusieurs dates, par exemple "2024-12-31" (Nouvel An), "2024-08-15" (une date proche), et une date passée pour vérifier le comportement.
+
+
+    console.log(
+        daysUntil("2024-08-23")
+    );
+    function daysUntil(date){
+        let day = new Date(date).getTime();
+        let today = new Date().getTime();
+        return Math.ceil( (day - today) / (1000*60*60*24) );
+    }
+
+    // Créez une fonction formatDate qui prend en paramètre une date sous forme de chaîne (par exemple "2024-08-21").
+    // La fonction doit retourner la date formatée de la manière suivante : "Wednesday 21 August 2024".
+    // Testez la fonction avec plusieurs dates.
+
+    console.log(
+        formatDate("2024-08-23")
+    );
+    function formatDate(date){
+        let d = new Date(date);
+        return d.toUTCString();
+
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tp 03</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>tp 03</h1>
+<script>
+    /*
+    Crée une classe Personne avec les propriétés nom et priorité (un nombre, où un chiffre plus bas indique une plus grande priorité).
+    Ensuite, crée une classe FileAttente qui gère une file d'attente de personnes.
+
+    La classe FileAttente doit avoir les méthodes suivantes :
+    ajouterPersonne(personne) : ajoute une personne à la file d'attente en fonction de sa priorité.
+    passerAuSuivant() : retire et renvoie la personne avec la priorité la plus haute (le chiffre le plus bas).
+    afficherFile() : affiche toutes les personnes dans la file, par ordre de priorité.
+
+    Pour complexifier l'exercice, ajoute une classe PersonneVIP qui hérite de Personne mais qui a toujours la priorité la plus élevée, quel que soit le nombre attribué.
+    */
+
+    class Person{
+        name;
+        priority;
+        constructor(name, priority) {
+            this.name = name;
+            this.priority = priority;
+        }
+    }
+    class Vip extends Person{
+        constructor(name) {
+            super();
+            this.name = name;
+            this.priority = -Infinity;
+        }
+    }
+
+    class Queue{
+
+        #queue = new Map;
+        constructor() {
+        }
+
+        addPerson(person){
+            this.#queue.set(person.name, person.priority);
+            this.#queue = new Map([...this.#queue.entries()].sort((a, b) => a[1] - b[1]));
+        }
+        next(){
+            const iterator = this.#queue.keys();
+            let person = iterator.next().value;
+            this.#queue.delete(person);
+            return person;
+        }
+        displayQueue(){
+            for (const elem of this.#queue) {
+                let position = elem[1] === -Infinity? "qu'il mérite, étant le meilleur d'entre nous" : elem[1];
+                console.log( elem[0] +" à la position " + position );
+            }
+        }
+    }
+
+    let rod = new Person("Rodolphe", 1);
+    let fab = new Person("Fabien", 2);
+    let ale = new Person("Alex", 2);
+    let yan = new Person("Yannick", 3);
+
+    let queue = new Queue();
+
+    queue.addPerson(rod);
+    queue.addPerson(fab);
+    queue.addPerson(yan);
+    queue.addPerson(ale);
+
+    let vip = new Vip("Jean Castex");
+    queue.addPerson(vip);
+
+    queue.displayQueue();
+
+
+
+</script>
+</body>
+</html>

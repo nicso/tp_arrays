@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>intersection de deux Set</title>
+    <style>
+        body {
+            background: #ddd;
+            font-family: Calibri;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2.5rem;
+        }
+
+        #btn, #number, h2 {
+            color: #555;
+            font-size: 2rem;
+            border: none;
+            text-wrap: wrap;
+            max-width: 100vw;
+        }
+
+        #btn {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>intersection de deux Set</h1>
+<script>
+
+    // Créez deux Set : le premier contenant les valeurs [1, 2, 3, 4] et le second [3, 4, 5, 6].
+    // Créez un nouveau Set qui contient l'intersection des deux premiers Set.
+    // Affichez les valeurs du Set d'intersection.
+
+    let set1 = new Set(), set2 = new Set(), set3 = new Set();
+
+    set1.add(1);
+    set1.add(2);
+    set1.add(3);
+    set1.add(4);
+
+    set2.add(3);
+    set2.add(4);
+    set2.add(5);
+    set2.add(6);
+
+
+    for (const set1Elem of set1) {
+        if (set2.has(set1Elem)){
+            set3.add(set1Elem);
+        }
+    }
+
+    console.log( "intersection = " + set3);
+    console.log( set3);
+
+    /////////////////////////////////////
+
+    let arrayOfSet1 = new Set( [...set1].filter((elem) => set2.has(elem) ) );
+
+</script>
+</body>
+</html>
